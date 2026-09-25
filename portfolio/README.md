@@ -3,19 +3,22 @@
 첨부된 레퍼런스 PDF의 톤앤매너(오프화이트 캔버스 · 로열블루 액센트 · 네이비 세리프 디스플레이 ·
 여백이 넉넉한 화이트 카드)를 따라 다시 구성한 포트폴리오 덱입니다.
 
-## 구성
+## 구성 (28p)
 
 | 페이지 | 내용 |
 |---|---|
-| 01 | Cover |
-| 02 | **About Me — 프로필 · 주요 경력 · 주요 기술을 1페이지에 집약** |
-| 03–06 | Contents · How I Work · Strengths · Selected Work (어필 요소) |
-| 07–14 | Project 01 MOVIN — 리깅 문제 해결 (회사별 상세 경험) |
-| 15–19 | Project 02 AI:REPLY — 한국우편사업진흥원 |
-| 20–23 | Project 03 Rebuilder AI — 3D 콘텐츠 / 기업용 AI 서비스 |
-| 24 | Project 04 Biafedia — BIAF |
-| 25 | Research — KCGS 2024 물리 기반 군중 시뮬레이션 |
-| 26–27 | Review · Thank You |
+| 01 | Cover — 직무 · 핵심 강점 |
+| 02–03 | **About Me — 프로필 · 경력 · 프로젝트 · 학력 · 자격 · 기술** (2페이지) |
+| 04 | Key Achievements — 한 장으로 보는 핵심 |
+| 05–08 | Contents · How I Work · Strengths · Selected Work |
+| 09–16 | Project 01 MOVIN — 리깅 문제 해결 |
+| 17–21 | Project 02 AI:REPLY — 한국우편사업진흥원 |
+| 22–24 | Project 03 Rebuilder AI — 3D 콘텐츠 / 기업용 AI 서비스 |
+| 25 | Project 04 Biafedia — BIAF |
+| 26 | Research — KCGS 2024 물리 기반 군중 시뮬레이션 |
+| 27–28 | Review · Thank You |
+
+전문가 페르소나 리뷰와 이력서 대조 기록은 [`REVIEW.md`](REVIEW.md)에 있습니다.
 
 ## 빌드
 

@@ -1,0 +1,106 @@
+<!-- ===================== 25 RESEARCH ===================== -->
+<section class="slide t-research" id="s25">
+  <div class="eyebrow"><b>Research</b> &nbsp;/&nbsp; 한국컴퓨터그래픽스학회(KCGS) 2024 포스터 발표</div>
+  <div class="pageno">25</div>
+
+  <div class="head" style="right:800px;">
+    <h1>사람을 도형으로 두지 않았을 때,<br><span class="ac">군중의 움직임이 달라졌습니다.</span></h1>
+    <p><b>개인별 속도차를 반영한 물리 기반 군중 탈출 시뮬레이션</b><br>2024.05 – 2025.06 &nbsp;|&nbsp; 연구실 소속 · 학부 2학년 중 합류</p>
+  </div>
+
+  <div style="position:absolute; left:88px; top:406px; width:1040px;">
+    <div class="row c2" style="gap:22px; align-items:stretch;">
+      <div class="card" style="height:280px;">
+        <span class="label">기존 방식의 한계</span>
+        <div class="t-md" style="margin-top:16px;">대부분의 군중 시뮬레이션은 개인을 <b>단순한 2D 도형</b>으로 표현합니다. 신체적 부피와 접촉이 대피 흐름에 미치는 영향이 빠져 있었습니다.</div>
+      </div>
+      <div class="card tint" style="height:280px;">
+        <span class="label">내가 만든 조건</span>
+        <div class="t-md" style="margin-top:16px;"><b>18개의 주요 관절로 구성된 3D 인체 모델을 직접 구축하고 리깅</b>해, 모션 캡처 데이터와 물리 엔진을 결합했습니다. 좁은 통로에서의 밀치기와 충돌을 재현했습니다.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px; padding:30px 40px;">
+      <span class="label">확인한 결과</span>
+      <div class="t-md" style="margin-top:12px;">에이전트별 이동 속도 차이를 반영해 군중의 <b>시각적 일관성과 정체 현상 데이터</b>를 도출했고, 인체의 세밀한 물리적 상호작용이 <b>고밀도 인파 시뮬레이션의 정확도를 결정하는 핵심 요소</b>임을 보였습니다. 게임·XR 콘텐츠의 사실적인 군중 연출로 활용 가능성을 확인했습니다.</div>
+    </div>
+
+    <div class="card plain" style="margin-top:20px; padding:26px 40px;">
+      <span class="label" style="color:var(--muted);">직접 부딪힌 문제</span>
+      <div class="t-sm" style="margin-top:10px;">평지에서만 검증하다 오르막 지형으로 바꾸자 에이전트가 경사를 오르지 못했습니다. <b>목표 지점을 상공으로 올려 시야를 위로 향하게</b> 해 해결했습니다.</div>
+    </div>
+  </div>
+
+  <div style="position:absolute; right:88px; top:230px; width:640px;">
+    <div class="fig" style="height:330px;"><img src="../assets/img/kcgs_poster.jpg"><span class="tag">KCGS 2024</span></div>
+    <div class="figcap">학회 포스터 발표 현장</div>
+    <div class="row c2" style="gap:18px; margin-top:22px;">
+      <div><div class="fig" style="height:230px;"><img src="../assets/img/crowd_unity.png"></div><div class="figcap">Unity — 본교 부지 모델링</div></div>
+      <div><div class="fig" style="height:230px;"><img src="../assets/img/pathfinder.png"></div><div class="figcap">Pathfinder 탈출 시뮬레이션</div></div>
+    </div>
+    <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+      <span class="chip grey">파라미터 수집</span><span class="chip grey">코드 수정</span><span class="chip grey">교사 모델링</span><span class="chip grey">포스터 발표</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 26 REVIEW ===================== -->
+<section class="slide t-movin" id="s26">
+  <div class="eyebrow"><b>Review</b> &nbsp;/&nbsp; 서로 다른 경험에서 반복된 판단</div>
+  <div class="pageno">26</div>
+
+  <div class="head">
+    <h1>필요한 기술을 배우는 이유는<br><span class="ac">문제를 실제로 끝내기 위해서</span>입니다.</h1>
+  </div>
+
+  <div class="stack row c3" style="top:400px;">
+    <div class="card" style="height:430px; display:flex; flex-direction:column;">
+      <div class="card-num">01</div>
+      <h3 style="margin-top:16px;">제약을 해결의<br>출발점으로</h3>
+      <div style="width:46px; height:3px; background:var(--accent); margin:24px 0 22px;"></div>
+      <div class="t-md">Bone을 늘릴 수 없는 조건에서 <b>Shape Key라는 다른 보정 지점</b>을 찾았습니다. 바꿀 수 없는 것을 먼저 확정하면 남은 선택지가 분명해집니다.</div>
+    </div>
+    <div class="card" style="height:430px; display:flex; flex-direction:column;">
+      <div class="card-num">02</div>
+      <h3 style="margin-top:16px;">사용자의 경험을<br>기준으로</h3>
+      <div style="width:46px; height:3px; background:var(--accent); margin:24px 0 22px;"></div>
+      <div class="t-md">편지 대상의 표현과 답장의 말투·분량을 고민하며 AI 경험을 구체화했습니다. <b>기술의 완성도보다 첫 문장을 쓸 수 있는지</b>를 먼저 봤습니다.</div>
+    </div>
+    <div class="card" style="height:430px; display:flex; flex-direction:column;">
+      <div class="card-num">03</div>
+      <h3 style="margin-top:16px;">끝까지<br>연결하는 태도</h3>
+      <div style="width:46px; height:3px; background:var(--accent); margin:24px 0 22px;"></div>
+      <div class="t-md">Blender에서 Unity로, AI 기능에서 기업의 업무로. <b>만든 결과물이 실제로 쓰이는 환경까지 연결하는 사람</b>이 되고자 합니다.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 27 THANK YOU ===================== -->
+<section class="slide" id="s27">
+  <div class="eyebrow" style="color:var(--muted);"><b>End :</b></div>
+
+  <div class="serif" style="position:absolute; top:86px; left:0; right:0; text-align:center; font-size:96px; font-weight:500;">Thank you for</div>
+  <div class="serif" style="position:absolute; top:186px; left:0; right:0; text-align:center; font-size:132px; font-weight:700; letter-spacing:-.012em;">Watching my Portfolio</div>
+
+  <div class="cover-card" style="left:250px; top:400px; width:1420px; height:680px;"></div>
+
+  <div style="position:absolute; left:320px; top:490px; width:800px;">
+    <div style="font-size:30px; font-weight:700; color:#fff; line-height:1.6; letter-spacing:-.022em;">
+      문제를 이해하고,<br>필요한 기술로 실제 결과를 만듭니다.
+    </div>
+    <div style="margin-top:22px; font-size:20px; font-weight:500; color:rgba(255,255,255,.82); line-height:1.7;">
+      감사합니다. 궁금한 점은 편하게 연락 주세요.
+    </div>
+  </div>
+
+  <div class="serif" style="position:absolute; top:470px; right:320px; font-size:58px; font-weight:600; color:#fff; font-style:italic;">김나영</div>
+
+  <div class="contact-grid" style="left:320px; bottom:120px; width:1280px;">
+    <div class="r"><span class="k">Name</span><span class="v">김나영 &nbsp;Nayeong Kim</span></div>
+    <div class="r"><span class="k">Mail</span><span class="v">nykim0508@gmail.com</span></div>
+    <div class="r"><span class="k">Phone</span><span class="v">010-4759-4639</span></div>
+    <div class="r"><span class="k">LinkedIn</span><span class="v">linkedin.com/in/nayeong-kim</span></div>
+  </div>
+</section>

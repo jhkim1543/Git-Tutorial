@@ -1,0 +1,295 @@
+<!-- ===================== 07 PROJECT 01 DIVIDER ===================== -->
+<section class="slide divider t-movin" id="s07">
+  <div class="eyebrow"><b>Project 01</b></div>
+  <div class="pageno">07</div>
+
+  <div style="position:absolute; left:88px; top:236px; width:880px;">
+    <div class="kicker">Project 01 &nbsp;/&nbsp; MOVIN</div>
+    <h2>Bone을 추가할 수 없어<br>메쉬를 바꾸는 쪽으로<br>문제를 풀었습니다.</h2>
+    <div class="sub">기존 리깅 구조를 그대로 유지한 채<br>관절 변형을 보정하고 Unity 엔진까지 연결한 작업입니다.</div>
+    <div class="meta">
+      <b>기간</b> &nbsp;2026.01 – 02 &nbsp;&nbsp;|&nbsp;&nbsp;
+      <b>담당</b> &nbsp;캐릭터 리깅 · 애니메이션 / 모션 데이터 전처리 &nbsp;&nbsp;|&nbsp;&nbsp;
+      <b>툴</b> &nbsp;Blender · Unity · C#
+    </div>
+  </div>
+
+  <div style="position:absolute; right:0; top:0; width:820px; height:1080px; overflow:hidden;">
+    <img src="../assets/img/mocap_studio.jpg" style="width:100%; height:100%; object-fit:cover; opacity:.92;">
+    <div style="position:absolute; inset:0; background:linear-gradient(90deg, #0E1440 0%, rgba(14,20,64,.55) 32%, rgba(14,20,64,.12) 100%);"></div>
+  </div>
+</section>
+
+
+<!-- ===================== 08 SCOPE ===================== -->
+<section class="slide t-movin" id="s08">
+  <div class="eyebrow"><b>Scope</b> &nbsp;/&nbsp; 진행 업무</div>
+  <div class="pageno">08</div>
+
+  <div class="head">
+    <h1>모션 데이터 정리부터 엔진 적용까지<br><span class="ac">네 가지 업무</span>를 맡았습니다.</h1>
+  </div>
+
+  <div class="stack row c4" style="top:340px;">
+    <div class="card" style="height:600px; display:flex; flex-direction:column; padding:0; overflow:hidden;">
+      <div class="fig" style="height:220px; border-radius:0;"><img src="../assets/img/bvh_excel.png"></div>
+      <div style="padding:32px 30px; display:flex; flex-direction:column; flex:1;">
+        <div class="card-num">01</div>
+        <h3 style="margin-top:12px; font-size:25px;">Trimming</h3>
+        <div class="t-sm" style="margin-top:14px;">참고 영상을 기준으로 BVH 모션 파일을 <b>8 · 16 · 24마디</b>로 잘라내고 엑셀로 정리했습니다.</div>
+      </div>
+    </div>
+
+    <div class="card" style="height:600px; display:flex; flex-direction:column; padding:0; overflow:hidden;">
+      <div class="fig" style="height:220px; border-radius:0;"><img src="../assets/img/retarget_rig.png"></div>
+      <div style="padding:32px 30px; display:flex; flex-direction:column; flex:1;">
+        <div class="card-num">02</div>
+        <h3 style="margin-top:12px; font-size:25px;">Animating</h3>
+        <div class="t-sm" style="margin-top:14px;">Mixamo 모션을 자회사 캐릭터 <b>NeoMOVINMan</b>에 리타게팅하고 동작을 다듬었습니다.</div>
+      </div>
+    </div>
+
+    <div class="card" style="height:600px; display:flex; flex-direction:column; padding:0; overflow:hidden; outline:2.5px solid var(--accent); outline-offset:-2.5px;">
+      <div class="fig" style="height:220px; border-radius:0;"><img src="../assets/img/hip_after_c.png"></div>
+      <div style="padding:32px 30px; display:flex; flex-direction:column; flex:1;">
+        <div class="card-num" style="color:var(--accent);">03</div>
+        <h3 style="margin-top:12px; font-size:25px;">Skinning &amp; Shape Key</h3>
+        <div class="t-sm" style="margin-top:14px;">관절 변형을 보정하고 <b>C# 스크립트</b>로 Unity에 다시 연결했습니다.</div>
+        <div style="margin-top:auto;"><span class="chip solid">이 사례를 자세히 다룹니다</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="height:600px; display:flex; flex-direction:column; padding:0; overflow:hidden;">
+      <div class="fig" style="height:220px; border-radius:0;"><img src="../assets/img/mocap_topdown.jpg"></div>
+      <div style="padding:32px 30px; display:flex; flex-direction:column; flex:1;">
+        <div class="card-num">04</div>
+        <h3 style="margin-top:12px; font-size:25px;">Actor</h3>
+        <div class="t-sm" style="margin-top:14px;">모션 캡처 스튜디오 촬영에 <b>액터로 직접 참여</b>해 데이터 취득 과정을 경험했습니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 09 PROBLEM ===================== -->
+<section class="slide t-movin" id="s09">
+  <div class="eyebrow"><b>Problem</b> &nbsp;/&nbsp; 품질 문제와 변경 제약</div>
+  <div class="pageno">09</div>
+
+  <div class="head" style="right:900px;">
+    <h1>관절은 무너졌지만,<br><span class="ac">기존 Bone 구조를 바꿀 수는</span> 없었습니다.</h1>
+  </div>
+
+  <div style="position:absolute; left:88px; top:350px; width:760px;">
+    <div class="card" style="padding:38px 40px;">
+      <span class="label">화면에서 보인 문제</span>
+      <div class="t-lg" style="margin-top:16px;">모캡 데이터를 적용하면 <b>고관절 함몰</b>과 <b>관절 꼬임(Candy Wrap)</b>이 발생했습니다. 단일 스킨 구조라 관절이 접힐수록 메쉬 압축이 심해졌습니다.</div>
+    </div>
+
+    <div class="card" style="padding:38px 40px; margin-top:24px;">
+      <span class="label">해결 방식을 제한한 조건</span>
+      <div class="t-lg" style="margin-top:16px;">이미 <b>기존 bone 구조 기준으로 다수의 작업이 누적</b>되어 있어, 보조 Bone을 추가하면 지금까지의 작업을 되돌려야 했습니다.</div>
+    </div>
+
+    <div class="band" style="margin-top:24px;">
+      <span class="cap">핵심 과제</span>
+      기존 작업과 호환되는 상태에서 <b>관절의 형태와 부피를 지킨다.</b>
+    </div>
+  </div>
+
+  <div style="position:absolute; right:88px; top:350px; width:772px;">
+    <div class="row c2">
+      <div>
+        <div class="fig" style="height:300px;"><img src="../assets/img/heat_arm.png"><span class="tag">WEIGHT</span></div>
+        <div class="figcap">펴진 상태의 가중치 분포</div>
+      </div>
+      <div>
+        <div class="fig" style="height:300px;"><img src="../assets/img/heat_elbow.png"><span class="tag">WEIGHT</span></div>
+        <div class="figcap">접힌 상태 — 압축이 집중되는 구간</div>
+      </div>
+    </div>
+    <div style="margin-top:26px;">
+      <div class="fig" style="height:344px;"><img src="../assets/img/hip_before_c.png"><span class="tag">BLENDER</span><span style="position:absolute; left:28%; top:44%; width:120px; height:120px; border:4px solid #E2603A; border-radius:50%;"></span></div>
+      <div class="figcap">고관절 — 접힐수록 부피가 꺼지는 구간</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 10 APPROACH ===================== -->
+<section class="slide t-movin" id="s10">
+  <div class="eyebrow"><b>Approach</b> &nbsp;/&nbsp; 원인을 좁히고 보정 대상을 변경</div>
+  <div class="pageno">10</div>
+
+  <div class="head">
+    <h1>스키닝을 조정해도 남는 변형,<br><span class="ac">보정할 형상을 따로 만드는 방법</span>을 선택했습니다.</h1>
+  </div>
+
+  <div class="stack" style="top:400px;">
+    <div class="row c3" style="align-items:stretch;">
+      <div class="card" style="height:300px;">
+        <span class="label">STEP 01 &nbsp;먼저 검토한 방식</span>
+        <h3 style="margin-top:18px; font-size:24px;">Bone 위치 조정 &amp; 스키닝</h3>
+        <div class="t-sm" style="margin-top:14px;">리깅 오류가 발생하기 쉬운 bone 위치 조정보다는, 여러 단일 스킨 모델을 참고해 <b>스키닝 작업에 집중</b>했습니다.</div>
+      </div>
+      <div class="card" style="height:300px;">
+        <span class="label">STEP 02 &nbsp;남아 있던 한계</span>
+        <h3 style="margin-top:18px; font-size:24px;">스키닝만으로는 부족</h3>
+        <div class="t-sm" style="margin-top:14px;">뼈 회전 시 주변 vertex가 <b>직선으로 이동</b>하는 스키닝의 계산 방식 때문에, 고관절 부피 꺼짐과 캔디랩은 그대로 남았습니다.</div>
+      </div>
+      <div class="card tint" style="height:300px;">
+        <span class="label">STEP 03 &nbsp;바꾼 관점</span>
+        <h3 style="margin-top:18px; font-size:24px;">보정 대상을 <span class="ac">형상</span>으로</h3>
+        <div class="t-sm" style="margin-top:14px;">관절이 접힐 때 필요한 형상을 <b>Shape Key로 따로 만들어 두면</b>, Bone 구조를 유지하면서 변형을 보정할 수 있다고 판단했습니다.</div>
+      </div>
+    </div>
+
+    <div class="row c3" style="margin-top:26px;">
+      <div><div class="fig" style="height:268px;"><img src="../assets/img/weightpaint_body.png"><span class="tag">TRY 01</span></div><div class="figcap">가중치 재분배 시도</div></div>
+      <div><div class="fig" style="height:268px;"><img src="../assets/img/weightpaint_hip.png"><span class="tag">TRY 02</span></div><div class="figcap">고관절 구간 집중 조정</div></div>
+      <div><div class="fig" style="height:268px;"><img src="../assets/img/joint_closeup.png"><span class="tag">RESULT</span></div><div class="figcap">그래도 남는 부피 꺼짐</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 11 SOLUTION 01 ===================== -->
+<section class="slide t-movin" id="s11">
+  <div class="eyebrow"><b>Solution 01</b> &nbsp;/&nbsp; Shape Key를 관절 보정에 적용</div>
+  <div class="pageno">11</div>
+
+  <div class="head">
+    <h1>표정에 쓰던 Shape Key를<br><span class="ac">고관절의 볼륨 보정</span>에 적용했습니다.</h1>
+    <p>facial 작업에서 주로 쓰는 기능을, 관절이 접힐 때 꺼지는 부위를 되살리는 용도로 전환했습니다.</p>
+  </div>
+
+  <div class="stack" style="top:392px;">
+    <div style="display:grid; grid-template-columns:1fr 120px 1fr; gap:0; align-items:center;">
+      <div>
+        <div class="fig" style="height:520px;"><img src="../assets/img/hip_before_c.png"><span class="tag">BEFORE</span><span style="position:absolute; left:26%; top:47%; width:150px; height:150px; border:4px solid #E2603A; border-radius:50%;"></span></div>
+        <div class="figcap">관절이 접히며 고관절 부피가 꺼짐</div>
+      </div>
+      <div class="arrow">→</div>
+      <div>
+        <div class="fig" style="height:520px; outline:3px solid var(--accent); outline-offset:-3px;"><img src="../assets/img/hip_after_c.png"><span class="tag ba">AFTER</span><span style="position:absolute; left:39%; top:47%; width:150px; height:150px; border:4px solid var(--accent); border-radius:50%;"></span></div>
+        <div class="figcap" style="color:var(--accent); font-weight:700;">Shape Key로 부피를 되살린 결과 · 추가 Bone 0개</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 12 SOLUTION 01b — CANDY WRAP ===================== -->
+<section class="slide t-movin" id="s12">
+  <div class="eyebrow"><b>Solution 01</b> &nbsp;/&nbsp; Candy-wrapper 보정</div>
+  <div class="pageno">12</div>
+
+  <div class="head" style="right:820px;">
+    <h1>비틀리는 관절은<br><span class="ac">트위스트 구간을 압축</span>해 잡았습니다.</h1>
+    <p>팔꿈치와 손목처럼 회전이 큰 관절은 그대로 두면 계단 현상이 생겨, Shape Key로 트위스트 부분을 압축했습니다.</p>
+  </div>
+
+  <div style="position:absolute; left:88px; top:470px; width:640px;">
+    <div class="card" style="padding:34px 36px;">
+      <h4>확인한 증상</h4>
+      <div class="t-md" style="margin-top:12px;">비틀림이 누적되면 메쉬가 사탕 포장지처럼 조여들고, 경계에서 <b>계단 형태의 단차</b>가 드러났습니다.</div>
+    </div>
+    <div class="card tint" style="padding:34px 36px; margin-top:22px;">
+      <h4>적용한 보정</h4>
+      <div class="t-md" style="margin-top:12px;">팔꿈치 · 손목 · 전완 세 구간에 각각 Shape Key를 만들어, 회전 각도에 따라 <b>단면 형상이 유지</b>되도록 했습니다.</div>
+    </div>
+  </div>
+
+  <div style="position:absolute; right:88px; top:250px; width:672px;">
+    <div class="row c2" style="gap:18px;">
+      <div><div class="fig" style="height:230px;"><img src="../assets/img/elbow_before.png"><span class="tag">BEFORE</span></div></div>
+      <div><div class="fig" style="height:230px; outline:3px solid var(--accent); outline-offset:-3px;"><img src="../assets/img/elbow_after.png"><span class="tag ba">AFTER</span></div></div>
+    </div>
+    <div class="figcap" style="margin-bottom:22px;">팔꿈치 — 접힘 구간의 단차 제거</div>
+
+    <div class="row c2" style="gap:18px;">
+      <div><div class="fig" style="height:230px;"><img src="../assets/img/wrist_before.png"><span class="tag">BEFORE</span></div></div>
+      <div><div class="fig" style="height:230px; outline:3px solid var(--accent); outline-offset:-3px;"><img src="../assets/img/wrist_after.png"><span class="tag ba">AFTER</span></div></div>
+    </div>
+    <div class="figcap" style="margin-bottom:22px;">손목 — 회전 시 조임 완화</div>
+
+    <div class="row c2" style="gap:18px;">
+      <div><div class="fig" style="height:230px;"><img src="../assets/img/forearm_before.png"><span class="tag">BEFORE</span></div></div>
+      <div><div class="fig" style="height:230px; outline:3px solid var(--accent); outline-offset:-3px;"><img src="../assets/img/forearm_after.png"><span class="tag ba">AFTER</span></div></div>
+    </div>
+    <div class="figcap">전완 — 트위스트 구간 압축</div>
+  </div>
+</section>
+
+
+<!-- ===================== 13 SOLUTION 02 — UNITY ===================== -->
+<section class="slide t-movin" id="s13">
+  <div class="eyebrow"><b>Solution 02</b> &nbsp;/&nbsp; 제작 툴에서 사용 환경까지</div>
+  <div class="pageno">13</div>
+
+  <div class="head">
+    <h1>Blender에서 해결한 보정을<br><span class="ac">Unity에서 다시 작동</span>하도록 연결했습니다.</h1>
+  </div>
+
+  <div class="stack" style="top:360px;">
+    <div class="row c2">
+      <div class="card" style="height:250px;">
+        <span class="label">다음 문제가 생긴 지점</span>
+        <div class="t-lg" style="margin-top:16px;">FBX로 내보내면 <b>Bone과 Shape Key를 연결하는 Blender Driver 정보가 저장되지 않아</b>, 엔진에서는 보정이 동작하지 않았습니다.</div>
+      </div>
+      <div class="card tint" style="height:250px;">
+        <span class="label">내가 연결한 부분</span>
+        <div class="t-lg" style="margin-top:16px;">Driver의 관계를 그대로 옮기는 <b>C# 스크립트를 작성</b>해, Unity에서 Bone 회전값에 따라 Shape Key가 다시 구동되도록 재연결했습니다. Gemini · Cursor AI를 활용해 작성했습니다.</div>
+      </div>
+    </div>
+
+    <div class="row c3" style="margin-top:28px;">
+      <div><div class="fig" style="height:330px;"><img src="../assets/img/blender_driver.png" style="object-fit:contain; background:#2B2B2B;"><span class="tag">BLENDER</span></div><div class="figcap">Bone ↔ Shape Key를 잇는 Driver 설정</div></div>
+      <div><div class="fig" style="height:330px;"><img src="../assets/img/csharp_script.png" style="object-fit:contain; background:#1E1E1E;"><span class="tag ba">C# SCRIPT</span></div><div class="figcap">Unity에서 관계를 재구성하는 스크립트</div></div>
+      <div><div class="fig" style="height:330px;"><img src="../assets/img/unity_demo.jpg"><span class="tag">UNITY</span></div><div class="figcap">엔진에서 보정이 적용된 상태로 재생</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 14 RESULT & REVIEW ===================== -->
+<section class="slide t-movin" id="s14">
+  <div class="eyebrow"><b>Result &amp; Review</b> &nbsp;/&nbsp; 제약을 지키며 구현한 결과</div>
+  <div class="pageno">14</div>
+
+  <div class="head">
+    <h1>기존 리깅 구조를 지키면서 관절 변형을 보정하고<br><span class="ac">엔진 적용까지</span> 연결했습니다.</h1>
+  </div>
+
+  <div class="stack" style="top:380px;">
+    <div class="row c3">
+      <div class="card metric" style="height:280px; display:flex; flex-direction:column;">
+        <span class="u">추가한 Bone</span>
+        <div class="n" style="margin-top:14px;">0</div>
+        <div class="t-sm" style="margin-top:auto;">기존 Bone 구조를 그대로 유지한 채<br>Shape Key로만 변형을 보정</div>
+      </div>
+      <div class="card metric" style="height:280px; display:flex; flex-direction:column;">
+        <span class="u">보정한 관절 구간</span>
+        <div class="n" style="margin-top:14px;">4<span style="font-size:36px; letter-spacing:0;">구간</span></div>
+        <div class="t-sm" style="margin-top:auto;">고관절 · 팔꿈치 · 손목 · 전완<br>함몰과 캔디랩을 함께 해결</div>
+      </div>
+      <div class="card metric" style="height:280px; display:flex; flex-direction:column;">
+        <span class="u">되돌린 기존 작업</span>
+        <div class="n" style="margin-top:14px;">0</div>
+        <div class="t-sm" style="margin-top:auto;">누적된 리깅 작업을 유지한 채<br>Blender → Unity까지 연결</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:28px; padding:40px 46px;">
+      <span class="label">이 경험에서 얻은 기준</span>
+      <div style="font-size:31px; font-weight:700; line-height:1.55; letter-spacing:-.024em; margin-top:16px; color:var(--ink);">
+        문제의 원인이 있는 구조를 바꾸기 어렵다면,<br>
+        <span class="ac">그 구조와 호환되는 다른 보정 지점</span>을 찾을 수 있습니다.
+      </div>
+      <div class="t-md" style="margin-top:18px;">
+        제약을 없애야 할 대상이 아니라 설계 조건으로 받아들이자, facial용 기능이었던 Shape Key가 관절 보정의 선택지로 보였습니다.
+        이후 프로젝트에서도 <b>먼저 바꿀 수 없는 것을 확정하고 나머지에서 방법을 찾는 순서</b>로 접근하고 있습니다.
+      </div>
+    </div>
+  </div>
+</section>

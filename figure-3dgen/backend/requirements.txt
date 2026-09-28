@@ -1,0 +1,18 @@
+# Versions tested in the development container (Python 3.11).
+fastapi==0.141.1
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+pydantic==2.13.5
+numpy==2.4.6
+scipy==1.17.1
+trimesh==5.1.0
+shapely==2.1.2
+manifold3d==3.5.4
+rtree==1.4.1
+mapbox-earcut==2.1.0
+networkx==3.6.1
+pillow==12.3.0
+boto3==1.43.103
+pytest
+httpx
+# Blender: install Blender 4.2+ and set FIG3D_BLENDER_PATH, or `pip install bpy==4.2.0` (Python 3.11 only).

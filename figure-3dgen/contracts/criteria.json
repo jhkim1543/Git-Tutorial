@@ -1,0 +1,93 @@
+{
+  "version": "2026-09-28.1",
+  "source": "Dream Plastic, AX DESIGN PLAN & METHOD REV.1 (DPAI 확장판 교육, 2025-12-30), 113 pages. Page numbers are 1-based PDF pages.",
+  "status_values": ["PASS", "FAIL", "NOT_VERIFIED", "BLOCKED"],
+  "principles": {
+    "photo_is_ground_truth": "Approved multi-view images derived from the original photo define appearance. The AI GLB is a reference for part partition intent only.",
+    "editable_before_moldable": "Moldable is derived from an approved Editable snapshot (hash-bound); it is never generated from scratch.",
+    "every_part_closed": "Every separated part in Editable AND Moldable must be a closed 2-manifold solid.",
+    "no_silent_pass": "Empty lists, timeouts and missing evidence never count as PASS.",
+    "ai_is_advisor": "Astra proposes (split judgements, joint concepts, images). Geometry is changed only by Blender / manifold3d and re-verified."
+  },
+  "editable": {
+    "definition_pages": [18, 52, 53, 54, 57, 58],
+    "gates": [
+      {"id": "all_parts_closed", "blocking": true, "pages": [86, 109], "rule": "open_edges == 0, nonmanifold_edges == 0, degenerate_faces == 0, winding consistent, volume > 0 for EVERY part"},
+      {"id": "single_shell_per_part", "blocking": true, "pages": [83, 86], "rule": "each part is one connected shell (Blender Select Linked unit) unless explicitly declared"},
+      {"id": "semantic_split_approved", "blocking": true, "pages": [18, 57, 58, 83, 109], "rule": "split review decisions (merge / resplit_clean / keep) are human-approved and applied by Blender"},
+      {"id": "photo_silhouette", "blocking": true, "pages": [62, 63, 108], "rule": "silhouette IoU against every approved photo view >= photo_silhouette_min_iou"},
+      {"id": "self_intersection_screen", "blocking": true, "pages": [86, 108, 109], "rule": "BVH non-adjacent triangle overlap screen == 0 pairs (screen, not exact proof)"},
+      {"id": "quad_dominant_topology", "blocking": true, "pages": [61, 86, 109], "rule": "quad ratio >= min_quad_ratio; triangulated GLB face count is not an editability measure"},
+      {"id": "native_roundtrip", "blocking": true, "pages": [97, 109], "rule": "Blender OBJ export -> reimport keeps part names, face counts and closure"},
+      {"id": "scale_and_axis", "blocking": true, "pages": [109], "rule": "units mm, Y-up public / Z-up Blender, export scale 1"},
+      {"id": "polycount_budget", "blocking": false, "pages": [84, 85, 109], "rule": "7M-12M quads is a high-poly EXAMPLE, 30M max; p.109 '1M(1천만)' is ambiguous. Report only; never inflate faces to pass."},
+      {"id": "zbrush_sculpt_roundtrip", "blocking": false, "pages": [96, 97, 98, 99], "rule": "Real ZBrush import -> partial sculpt -> save -> reopen. Human evidence only; NOT_VERIFIED by default."}
+    ],
+    "thresholds": {
+      "photo_silhouette_min_iou": 0.85,
+      "min_quad_ratio": 0.9,
+            "designed_shell_thickness_mm": 2.0,
+      "voxel_size_fraction_of_height": 0.004
+    }
+  },
+  "split_review": {
+    "pages": [18, 31, 32, 53, 57, 83, 109],
+    "actions": {
+      "merge": "Fragments of one semantic region (same cape, same eye) split into several patches -> one part.",
+      "resplit_clean": "Legitimate semantic boundary but jagged / zig-zag -> keep two parts, smooth the boundary.",
+      "keep": "Boundary is a real design boundary and already clean."
+    },
+    "note": "Editable 'separation (분리)' is for editing; Moldable 'partition (분할)' is for manufacturing (p.18). Do not confuse them."
+  },
+  "moldable": {
+    "definition_pages": [18, 59, 64, 100],
+    "assumptions": ["max_undercut_area_ratio values are demo screening thresholds chosen by the developer, NOT numbers from the PDF. Replace with mold-engineer values."],
+    "materials": {
+      "PVC_ROTO": {"pages": [19, 78], "undercut_tolerance": "relaxed (PVC pulled off the ROTO mold)", "max_undercut_area_ratio": 0.12, "min_wall_mm": 1.5, "stable_wall_mm": 2.0},
+      "PVC_INJECTION": {"pages": [19, 23, 77], "undercut_tolerance": "strict", "max_undercut_area_ratio": 0.03, "min_wall_mm": 1.5, "stable_wall_mm": 2.0},
+      "ABS_INJECTION": {"pages": [19, 42, 77], "undercut_tolerance": "strict", "max_undercut_area_ratio": 0.03, "min_wall_mm": 1.5, "stable_wall_mm": 2.0, "max_solid_thickness_mm": 5.0}
+    },
+    "gates": [
+      {"id": "derived_from_editable", "blocking": true, "pages": [52, 64], "rule": "moldable input hash == approved editable geometry hash"},
+      {"id": "all_parts_closed", "blocking": true, "pages": [100, 109], "rule": "same as editable"},
+      {"id": "assembly_graph_coverage", "blocking": true, "pages": [21, 59], "rule": "every contact interface of the moldable partition has exactly one approved joint plan or an approved merge"},
+      {"id": "male_female_pairs", "blocking": true, "pages": [21, 43, 59], "rule": "every joint: male pin unioned into its body, female socket cut with clearance, boss/wall intact"},
+      {"id": "assembled_interference", "blocking": true, "pages": [108], "rule": "pairwise positive-volume intersection == 0 in assembled state"},
+      {"id": "insertion_path", "blocking": true, "pages": [21, 59], "rule": "full-interval straight insertion sweep along the joint axis has no positive-volume collision"},
+      {"id": "min_wall_thickness", "blocking": true, "pages": [38, 43, 79, 110], "rule": "sampled inward ray thickness p05 >= material min_wall_mm (tips may reach 1.02 mm only locally)"},
+      {"id": "thickness_uniformity", "blocking": false, "pages": [20, 41, 110], "rule": "report thick/thin ratio; abrupt changes cause sink marks and cracks"},
+      {"id": "abs_max_thickness", "blocking": true, "pages": [42], "rule": "ABS only: solid thickness > 5 mm requires an extra split"},
+      {"id": "undercut", "blocking": true, "pages": [21, 23, 24, 25, 46, 79, 110], "rule": "best two-sided pull direction undercut area ratio <= material limit"},
+      {"id": "draft", "blocking": false, "pages": [46], "rule": "area ratio of faces nearly parallel to the pull direction (< 0.5 deg) is reported"},
+      {"id": "sharp_points", "blocking": true, "pages": [38, 110], "rule": "protruding tips: local thickness >= 1.5 mm main, >= 1.02 mm extreme; tips must be rounded"},
+      {"id": "self_standing", "blocking": false, "pages": [33, 34, 36, 110], "rule": "center of mass projects inside the support polygon; otherwise base / pose change"},
+      {"id": "legal_line_area", "blocking": false, "pages": [48], "rule": "a flat bottom area >= 7 mm (normally 10-12 mm) for the legal line"},
+      {"id": "small_parts", "blocking": false, "pages": [49], "rule": "flag parts that fit a small-parts cylinder (31.7 mm dia; external standard 16 CFR 1501, not in the PDF)"},
+      {"id": "s3_grounded_joint_parameters", "blocking": false, "pages": [], "rule": "joint archetype/dimensions retrieved from the analysed S3 reference library; NOT_VERIFIED while the library is empty"},
+      {"id": "process_and_physical_approval", "blocking": false, "pages": [59, 64, 65, 66, 100, 104], "rule": "print / copycast / mold engineer approval. Human only; never automated."}
+    ],
+    "joint_defaults_assumption": {
+      "note": "Used only while the S3 joint library is empty. These are demo assumptions, not approved tolerances.",
+      "radial_clearance_mm": 0.15,
+      "end_clearance_mm": 0.4,
+      "socket_wall_mm": 1.2,
+      "size_classes": [
+        {"class": "XS", "max_interface_mm": 6, "pin_radius_mm": 0.8, "pin_length_mm": 2.0},
+        {"class": "S", "max_interface_mm": 10, "pin_radius_mm": 1.2, "pin_length_mm": 3.0},
+        {"class": "M", "max_interface_mm": 16, "pin_radius_mm": 1.8, "pin_length_mm": 4.0},
+        {"class": "L", "max_interface_mm": 26, "pin_radius_mm": 2.6, "pin_length_mm": 5.0},
+        {"class": "XL", "max_interface_mm": 1000, "pin_radius_mm": 3.5, "pin_length_mm": 6.0}
+      ]
+    }
+  },
+  "numbers_with_context": {
+    "p38": "Sharp point main min 1.5 mm, stable >= 2 mm, pillar average > 2.3 mm, extreme tip ~1.02 mm locally. Context: tip regions, not a universal wall rule.",
+    "p42": "ABS structure thicker than 5 mm -> split. ABS injection only.",
+    "p44": "Case clearance 7-10 mm: packaging case study.",
+    "p47": "Hand to face >= 6 mm or insert blister: paint chipping case.",
+    "p48": "Legal line 7-14 mm (normally 10-12 mm): buyer/marking dependent.",
+    "p78": "107% wax mock-up: ROTO process example; not a universal shrink factor.",
+    "p84": "7-12M quads average, 30M max: high-poly budget example, not a minimum.",
+    "p109": "'1M (1천만)' mismatch between M and Korean number; do not auto-threshold."
+  }
+}

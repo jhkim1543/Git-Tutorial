@@ -1,0 +1,1 @@
+{"status": "EMPTY", "samples": 0, "archetypes": [], "summary": {}, "note": "Run scripts/s3_reference.py analyze + library on the FreeForm exports of the 50 S3 samples. Until then the planner uses the labelled assumption defaults in criteria.json."}

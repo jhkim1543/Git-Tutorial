@@ -1,0 +1,10 @@
+data/
+__pycache__/
+*.pyc
+.pytest_cache/
+frontend/node_modules/
+frontend/dist/
+.env
+# Large ground-truth CAD never goes into git (see docs/S3_REFERENCE_KO.md)
+reference_data/
+*.cly

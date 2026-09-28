@@ -8,3 +8,4 @@ frontend/dist/
 # Large ground-truth CAD never goes into git (see docs/S3_REFERENCE_KO.md)
 reference_data/
 *.cly
+*.tsbuildinfo

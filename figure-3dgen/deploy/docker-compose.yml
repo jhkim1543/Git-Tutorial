@@ -1,0 +1,17 @@
+# Example for the figure.rebuilder.ai host. The existing OPENAI_API_KEY is reused from the host env / secret store.
+services:
+  figure-3dgen:
+    build: { context: .., dockerfile: deploy/Dockerfile }
+    image: figure-3dgen:latest
+    restart: unless-stopped
+    environment:
+      FIG3D_BASE_PATH: /3dgen
+      FIG3D_DATA_DIR: /data
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?set on the host, never commit}
+      ASTRA_MODEL: ${ASTRA_MODEL:-gpt-6-astra}
+    volumes:
+      - figure3d-data:/data
+    ports:
+      - "127.0.0.1:8030:8030"
+volumes:
+  figure3d-data:
